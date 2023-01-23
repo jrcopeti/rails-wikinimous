@@ -1,0 +1,12 @@
+ <%= simple_form_for @article do |f| %>
+    <%= f.input :title, required: true, :input_html => { :maxlength => 50 }%>
+    <%= f.input :subtitle, required: true,  :input_html => { :maxlength => 100 }%>
+    <%= f.input :content, required: true, :input_html => { :maxlength => 500 } %>
+    <%= f.submit%>
+  <% end %>
+
+<% if @article.errors.any? %>
+  <% @article.errors.full_messages.each do |message| %>
+    <p><% message %></p>
+  <% end %>
+<% end %>
